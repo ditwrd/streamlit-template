@@ -1,4 +1,4 @@
-# remove conda environment for current directory
+#!/bin/bash
 function rmcenv()
 {
   if [[ -f ".cenv" ]]; then
@@ -28,7 +28,7 @@ function mkcenv()
     printf ".cenv file already exists. If this is a mistake use the rmcenv command\n"
   else
     cenv_name="$(basename $PWD)"
-    conda create --name "$cenv_name" $@
+    conda create --name "$cenv_name" "$@"
     conda run -n "$cenv_name" poetry install
     printf "$cenv_name\n" > ".cenv"
     chmod 600 .cenv
