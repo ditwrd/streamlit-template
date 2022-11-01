@@ -1,5 +1,6 @@
-from api import logic, utils
 import streamlit as st
+
+from api import logic, utils
 
 
 def main():
